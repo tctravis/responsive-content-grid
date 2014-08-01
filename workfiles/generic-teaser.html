@@ -1,0 +1,61 @@
+<!-- generic teaser markup -->
+<section class="teaser promo discount">
+	<figure>	
+		<img src="/pancentric/silverstone/webroot/static/images/temp/16x9-02.jpg" alt="Figure image">		
+	</figure>
+	<header class="teaser-header">
+		<h2 class="teaser-title"><span>Home of the Legends</span></h2>	
+	</header>
+	<div class="teaser-body">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pretium ligula ut purus vehicula ut fringilla massa molestie. Donec feugiat mollis mollis. Etiam ligula lacus, dapibus ultricies scelerisque vel, faucibus vel odio. Nullam non sagittis risus. Nam tempor dapibus lectus.</p>
+	</div>
+</section>
+
+
+<!-- sass code for overlay icons -->
+<style>
+@mixin icon-sprite($format:svg){
+	background-image:url(../images/icon-sprite.#{$format});
+	background-repeat:no-repeat;
+}
+@mixin icon-sprite-position($x,$y,$width,$height,$top:0,$left:0,$position:relative){
+	background-position:$x $y;
+	height:$height;
+	width:$width;
+	@if ( ($top != 0) or ($left != 0) or ($position != relative) ) {
+		left:$left;
+		position:$position;
+		top:$top;
+	}
+}
+.offer,
+.new,
+.discount {
+	position:relative;
+	figure {
+		&:after {
+			content:'';
+			display:block;
+			position:absolute;
+			right:0;
+			text-indent:-999em;
+			top:0;
+			z-index:10;
+		}		
+	}
+}
+.discount figure {
+	&:after {
+		@include icon-sprite-position(-512px,-789px,41px,41px);
+		right:.5em;
+		top:.5em;
+	}
+	@media #{$mq-desktop}{
+		&:after {
+			background-position:-544px -687px;
+			height:60px;
+			width:60px;
+		}
+	}
+}
+</style>
